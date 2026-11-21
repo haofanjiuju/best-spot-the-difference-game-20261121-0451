@@ -1,0 +1,82 @@
+/* Spot the Difference — Harbor Lights: page chrome and HUD. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+  background: #14202e radial-gradient(1200px 600px at 50% -10%, #24405c 0%, #14202e 60%);
+  color: #f2ead8;
+  min-height: 100%;
+}
+#app { max-width: 1240px; margin: 0 auto; padding: 14px 18px 22px; }
+#topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+#brand { display: flex; align-items: center; gap: 12px; }
+#logo { font-size: 38px; }
+#game-title { font-size: 30px; letter-spacing: .5px; color: #ffd76a; text-shadow: 0 2px 0 #7a4d00; }
+#game-sub { font-size: 13px; color: #b9c8d8; }
+#level-tabs { display: flex; gap: 8px; }
+.level-tab {
+  border: 2px solid #3d5a76; background: #1c2f42; color: #cfe0ef;
+  padding: 8px 14px; border-radius: 999px; font: inherit; font-size: 14px; cursor: pointer;
+}
+.level-tab:hover { border-color: #ffd76a; color: #ffd76a; }
+.level-tab.active { background: #ffd76a; border-color: #ffd76a; color: #231a05; font-weight: bold; }
+#hud {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  background: rgba(0, 0, 0, .28); border: 1px solid #33506c; border-radius: 12px;
+  padding: 10px 14px; margin: 12px 0;
+}
+#level-name { font-weight: bold; font-size: 17px; color: #ffe9a8; }
+#counter { font-size: 17px; }
+#counter b { color: #ffd76a; }
+#remain-count { color: #ff9d6b; }
+#timer-wrap {
+  position: relative; flex: 1 1 160px; min-width: 140px; height: 26px;
+  background: #0c1622; border: 1px solid #33506c; border-radius: 999px; overflow: hidden;
+}
+#timer-bar { height: 100%; width: 100%; background: linear-gradient(90deg, #37c978, #ffd76a 70%, #ff7a59); transition: width .3s linear; }
+#timer-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 14px; color: #10202f; text-shadow: 0 1px 0 rgba(255,255,255,.35); }
+#score-box { font-size: 16px; }
+#score { color: #ffd76a; }
+#hud-buttons { display: flex; gap: 8px; margin-left: auto; }
+#hud-buttons button, #overlay-btn {
+  border: 2px solid #3d5a76; background: #22394f; color: #f2ead8;
+  padding: 7px 12px; border-radius: 10px; font: inherit; font-size: 14px; cursor: pointer;
+}
+#hud-buttons button:hover, #overlay-btn:hover { border-color: #ffd76a; color: #ffd76a; }
+#hud-buttons button:disabled { opacity: .45; cursor: default; }
+#boards { display: flex; align-items: flex-start; justify-content: center; gap: 14px; }
+.panel { text-align: center; }
+.panel figcaption {
+  font-size: 15px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;
+  color: #b9c8d8; margin-bottom: 6px;
+}
+.panel canvas {
+  display: block; width: 560px; height: 400px; max-width: 46vw;
+  border: 4px solid #33506c; border-radius: 10px; background: #0c1622;
+  cursor: crosshair; box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+.panel canvas:focus { outline: 3px solid #ffd76a; outline-offset: 2px; }
+#versus {
+  align-self: center; font-size: 26px; font-weight: bold; color: #ffd76a;
+  background: #22394f; border: 2px solid #ffd76a; border-radius: 50%;
+  width: 54px; height: 54px; display: flex; align-items: center; justify-content: center;
+  flex: 0 0 auto; margin-top: 26px;
+}
+#help-line { text-align: center; margin-top: 12px; font-size: 14px; color: #b9c8d8; }
+#help-line kbd { background: #22394f; border: 1px solid #3d5a76; border-radius: 4px; padding: 1px 6px; font-family: inherit; }
+#overlay {
+  position: fixed; inset: 0; background: rgba(6, 12, 20, .72);
+  display: flex; align-items: center; justify-content: center; z-index: 10;
+}
+#overlay.hidden { display: none; }
+#overlay-card {
+  background: #1c2f42; border: 3px solid #ffd76a; border-radius: 16px;
+  padding: 28px 36px; text-align: center; max-width: 480px; box-shadow: 0 16px 48px rgba(0,0,0,.6);
+}
+#overlay-title { color: #ffd76a; font-size: 28px; margin-bottom: 10px; }
+#overlay-text { font-size: 16px; line-height: 1.5; color: #e8eef4; margin-bottom: 12px; }
+#overlay-stars { font-size: 34px; letter-spacing: 6px; margin-bottom: 16px; }
+#overlay-btn { font-size: 17px; padding: 10px 22px; }
+@media (max-width: 1180px) {
+  .panel canvas { width: 44vw; height: auto; }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spot the Difference — Harbor Lights</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div id="brand">
+      <span id="logo">🔍</span>
+      <div>
+        <h1 id="game-title">Spot the Difference</h1>
+        <p id="game-sub">Harbor Lights &middot; an original picture hunt</p>
+      </div>
+    </div>
+    <div id="level-tabs" role="tablist" aria-label="Levels">
+      <button class="level-tab" data-level="0" aria-label="Level 1 Harbor at Dusk">1 · Harbor</button>
+      <button class="level-tab" data-level="1" aria-label="Level 2 Cat Cafe Garden">2 · Garden</button>
+      <button class="level-tab" data-level="2" aria-label="Level 3 Lantern Night Market">3 · Market</button>
+    </div>
+  </header>
+
+  <section id="hud">
+    <div id="level-name">Level 1 — Harbor at Dusk</div>
+    <div id="counter" aria-live="polite">Found <b id="found-count">0</b> / <b id="total-count">7</b> &nbsp;·&nbsp; <span id="remain-label">Remaining: <b id="remain-count">7</b></span></div>
+    <div id="timer-wrap" title="Time left">
+      <div id="timer-bar"></div>
+      <span id="timer-text">150s</span>
+    </div>
+    <div id="score-box">Score <b id="score">0</b></div>
+    <div id="hud-buttons">
+      <button id="hint-btn" title="Hint (H) — reveal one difference for a moment">💡 Hint <span id="hint-count">(3)</span></button>
+      <button id="sound-btn" title="Sound on/off (M)">🔊 Sound</button>
+      <button id="restart-btn" title="Restart level (R)">↻ Restart</button>
+    </div>
+  </section>
+
+  <main id="boards">
+    <figure class="panel" id="panel-left-wrap">
+      <figcaption>Original</figcaption>
+      <canvas id="panel-left" width="560" height="400" tabindex="0" aria-label="Left picture, the original"></canvas>
+    </figure>
+    <div id="versus" aria-hidden="true">VS</div>
+    <figure class="panel" id="panel-right-wrap">
+      <figcaption>Changed</figcaption>
+      <canvas id="panel-right" width="560" height="400" tabindex="0" aria-label="Right picture, with differences"></canvas>
+    </figure>
+  </main>
+
+  <p id="help-line">Click a difference on either picture to circle it. <kbd>H</kbd> hint · <kbd>R</kbd> restart · <kbd>1</kbd>/<kbd>2</kbd>/<kbd>3</kbd> levels · <kbd>N</kbd> next level · <kbd>M</kbd> sound. Wrong clicks cost 5 seconds.</p>
+
+  <div id="overlay" class="hidden">
+    <div id="overlay-card">
+      <h2 id="overlay-title"></h2>
+      <p id="overlay-text"></p>
+      <div id="overlay-stars"></div>
+      <button id="overlay-btn">Next level</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
